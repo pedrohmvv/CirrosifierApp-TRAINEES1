@@ -3,7 +3,6 @@ import streamlit as st
 from streamlit_extras.stylable_container import stylable_container 
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
-import json
 from joblib import load
 from numpy import array, argmax
 
