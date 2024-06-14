@@ -67,7 +67,7 @@ class FrontEnd:
 
         selector = option_menu(
             menu_title = "",
-            options = ["Gráficos", "Classificador de Estágio"],
+            options = ["Gráficos", "Classificador de Estágio", "Classificador de Situação"],
             default_index = 0,
             icons = ["bar-chart", "code"],
             orientation = "horizontal",
@@ -102,6 +102,60 @@ class FrontEnd:
             st.write("#")
             st.write('Gráficos')
 
+        if (selector == "Classificador de Situação"):
+            death_classes = {0: 'Morte', 1:'Sobreviveu', 2:'Transplante'}
+            st.write("#")
+            st.spinner("Loading your model")
+            c1, c2, c3, c4, c5 = st.columns([4, 4, 4, 4, 4])
+            categoric_labels = [label for label, key in self.config.vars.death_labels.items() if key =='text']
+            int_labels = [label for label, key in self.config.vars.death_labels.items() if key =='int']
+            labels = [label for label, key in self.config.vars.death_labels.items() if key =='label']
+            categoric_answers = {'Sim':1, 'Não':0}
+            input_array = []
+            model_path = path.join(self.config.vars.models_dir,self.config.vars.death_model)
+            scaler_path = path.join(self.config.vars.scalers_dir,self.config.vars.death_scaler)
+            model = load(model_path)
+            scaler = load(scaler_path)
+
+            for i, label in enumerate(self.config.vars.death_labels):
+                formatted_label = label.replace('_', ' ')
+
+                if (i <= 4):
+                    column = c2
+                else:
+                    column = c4
+
+                if (label in categoric_labels):
+                    answer = column.selectbox(f'Informe: {label}',categoric_answers.keys())
+                    answer = categoric_answers[answer]
+                elif (label in int_labels):
+                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, step=1, key=f'{label}_death')
+                elif (label in labels):
+                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=1,max_value=3, step=1, key=f'{label}_death')
+                else:
+                    answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_death')
+
+                input_array.append(answer)
+            
+            col1, col2, col3 = st.columns([1,1,1])
+            try:
+                with col2:
+                    st.write('#')
+                    st.write('#')
+                    if st.button('Realizar Predição', key='submit'):
+                        input_array = array(input_array).reshape(1, -1)
+                        input_array = scaler.transform(input_array)
+                        predict_class = model.predict(input_array)
+                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442">Classe prevista: {death_classes[argmax(predict_class)]}</h2></div>', unsafe_allow_html=True)
+            except ValueError:
+                st.markdown(
+                    """
+                    p {color: black}
+                    """
+                )
+                st.warning('Por favor responda todas para realizar a predição')
+
+
         if (selector == "Classificador de Estágio"):
             st.write("#")
             st.spinner("Loading your model")
@@ -129,7 +183,7 @@ class FrontEnd:
                     answer = column.selectbox(f'Informe: {label}',categoric_answers.keys())
                     answer = categoric_answers[answer]
                 elif (label in int_labels):
-                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, key=f'{label}_stage')
+                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, step=1, key=f'{label}_stage')
                 else:
                     answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_stage')
 
