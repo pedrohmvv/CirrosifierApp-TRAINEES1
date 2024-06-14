@@ -132,17 +132,25 @@ class FrontEnd:
                     answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, key=f'{label}_stage')
                 else:
                     answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_stage')
+
+                input_array.append(answer)
             
+            
+            col1, col2, col3 = st.columns([1,1,1])
             try:
-                col1, col2, col3 = st.columns([1,1,1])
                 with col2:
                     if st.button('Realizar Predição', key='submit'):
                         input_array = array(input_array).reshape(1, -1)
                         input_array = scaler.transform(input_array)
                         predict_class = model.predict(input_array)
-                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442;">Classe prevista: Estágio {np.argmax(predict_class) + 1}</h2></div>', unsafe_allow_html=True)
-            except ValueError as error:
-                st.warning('Por favor, responda a todas as perguntas para fazer a previsão.')
+                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442">Classe prevista: Estágio {argmax(predict_class) + 1}</h2></div>', unsafe_allow_html=True)
+            except ValueError:
+                st.markdown(
+                    """
+                    p {color: black}
+                    """
+                )
+                st.warning('Por favor responda todas para realizar a predição')
             
 
     
