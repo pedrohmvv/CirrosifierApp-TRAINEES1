@@ -108,7 +108,7 @@ class FrontEnd:
             for i, label in enumerate(self.config.vars.stage_labels):
                 formatted_label = label.replace('_', ' ')
 
-                if i <= 8:
+                if i <= 7:
                     column = c2
                 else:
                     column = c4
