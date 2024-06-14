@@ -14,7 +14,7 @@ class FrontEnd:
     def __init__(self):
         """Initialize instance"""
         self.config = Config()
-        self.logo_path = path.join(self.config.project_dir.replace(r'src',''), "img", self.config.vars.project_logo)
+        self.logo_path = path.join(self.config.vars.img_dir,self.config.vars.project_logo)
 
 
     def __repr__(self):
@@ -28,13 +28,12 @@ class FrontEnd:
     def basic_layout(self):
         """Streamlit Page Loayout"""
         st.set_page_config(self.config.vars.project_name, page_icon = self.logo_path, layout = "wide")
-        st.write(self.logo_path)
         st.markdown(
         """
         <style>
         .stApp {
             background-color: white;
-            h1, h2, h3, h4, h5, h6, p, span {color: black;};
+            h1, h2, h3 {color: black;}; 
         }
 
         </style>
@@ -44,7 +43,7 @@ class FrontEnd:
         
         c1, c2, c3 = st.columns([5, 5, 5])
 
-        with c1:
+        with c2:
             st.image(self.logo_path, caption='Cirrosifier Logo', use_column_width=True,)
         c1, c2, c3 = st.columns(3)
 
@@ -86,15 +85,29 @@ class FrontEnd:
                                       'border-radius':'5px'},
             }
     )
-        if selector == "Gráficos":
+        st.markdown(self.config.input_style, unsafe_allow_html=True)
+        st.markdown(self.config.button_style, unsafe_allow_html=True)
+
+        if (selector == "Gráficos"):
+            st.markdown(
+             """
+             <style>
+             .stApp {
+                 background-color: white;
+                p {color: black;}; 
+             }
+
+             </style>
+             """,unsafe_allow_html=True)
             st.write("#")
             st.write('Gráficos')
 
-        if selector == "Classificador de Estágio":
+        if (selector == "Classificador de Estágio"):
             st.write("#")
             st.spinner("Loading your model")
             c1, c2, c3, c4, c5 = st.columns([4, 4, 4, 4, 4])
             categoric_labels = [label for label, key in self.config.vars.stage_labels.items() if key =='text']
+            int_labels = [label for label, key in self.config.vars.stage_labels.items() if key =='int']
             categoric_answers = {'Sim':1, 'Não':0}
             input_array = []
             model_path = path.join(self.config.vars.models_dir,self.config.vars.stage_model)
@@ -102,38 +115,33 @@ class FrontEnd:
             model = load(model_path)
             scaler = load(scaler_path)
 
-            global all_answered 
-            all_answered = True
-
             for i, label in enumerate(self.config.vars.stage_labels):
                 formatted_label = label.replace('_', ' ')
 
-                if i <= 7:
+                if (i <= 4):
                     column = c2
+                elif (4 < i <= 9):
+                    column = c3
                 else:
                     column = c4
 
-                if label in categoric_labels:
+                if (label in categoric_labels):
                     answer = column.selectbox(f'Informe: {label}',categoric_answers.keys())
                     answer = categoric_answers[answer]
+                elif (label in int_labels):
+                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, key=f'{label}_stage')
                 else:
                     answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_stage')
-                
-                # Check if answer is None or empty
-                if answer is None or answer == '':
-                    all_answered = False
-                    break
-
-                if answer:
-                    input_array.append(answer)
-
-            if all_answered:
-                input_array = array(input_array).reshape(1, -1)
-                input_array = scaler.transform(input_array)
-                predict_class = model.predict(input_array)
-                # Escrever a classe prevista com ênfase
-                st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442;">Classe prevista: Estágio {argmax(predict_class) + 1}</h2></div>', unsafe_allow_html=True)
-            else:
+            
+            try:
+                col1, col2, col3 = st.columns([1,1,1])
+                with col2:
+                    if st.button('Realizar Predição', key='submit'):
+                        input_array = array(input_array).reshape(1, -1)
+                        input_array = scaler.transform(input_array)
+                        predict_class = model.predict(input_array)
+                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442;">Classe prevista: Estágio {np.argmax(predict_class) + 1}</h2></div>', unsafe_allow_html=True)
+            except ValueError as error:
                 st.warning('Por favor, responda a todas as perguntas para fazer a previsão.')
             
 

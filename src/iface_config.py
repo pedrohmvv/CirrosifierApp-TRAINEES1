@@ -10,6 +10,7 @@ class Variables:
     project_name: str
     filename: str
     data_dir: str
+    img_dir: str
     project_logo: str
     models_dir: str
     scalers_dir: str
@@ -37,6 +38,7 @@ class Config:
             project_name=data.get('project_name'),
             filename=data.get('filename'),
             data_dir=data.get('data_dir'),
+            img_dir=data.get('img_dir'),
             project_logo=data.get('project_logo'),
             models_dir=data.get('models_dir'),
             scalers_dir=data.get('scalers_dir'),
@@ -47,4 +49,34 @@ class Config:
             stage_labels=data.get('stage_labels'),
             death_labels=data.get('death_labels')
         )
+        self.button_style ="""
+                            <style>
+                            .stButton > button {
+                                background-color: #b02238; /* Cor de fundo */
+                                color: white; /* Cor do texto */
+                                padding: 10px 20px; /* Ajuste o padding conforme necessário */
+                                border: none; /* Remove a borda do botão */
+                                cursor: pointer; /* Muda o cursor ao passar por cima */
+                                display: inline-block; /* Permite centralizar usando text-align */
+                                margin: auto; /* Centraliza horizontalmente */
+                            }
+                            .stButton > button:hover {
+                                background-color: #6d0019; /* Cor de fundo ao passar o mouse */
+                            }
+                            </style>
+                            """
+        self.input_style = """
+                            <style>
+                            .stSelectbox > div, .stNumberInput > div {
+                                width: 100% !important;
+                            }
+                            .stSelectbox label, .stNumberInput label {
+                                white-space: nowrap !important;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: block;
+                                color: black;
+                            }
+                            </style>
+                            """
 
