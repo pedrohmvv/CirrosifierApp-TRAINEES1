@@ -72,7 +72,7 @@ class Config:
                             }
                             .stSelectbox label, .stNumberInput label {
                                 white-space: nowrap !important;
-                                overflow: hidden;
+                                    overflow: visible; /* Garante que o conteúdo visível não seja cortado */
                                 text-overflow: ellipsis;
                                 display: block;
                                 color: black;
