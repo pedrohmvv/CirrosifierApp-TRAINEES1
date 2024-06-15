@@ -24,9 +24,25 @@ class FrontEnd:
         """Print instance representation"""
         return "FrontEnd class"
 
+    def start(self):
+        st.set_page_config(self.config.vars.project_name, page_icon=self.logo_path, layout="wide")
+        hide_streamlit_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .main > div {
+            padding: 0rem;
+            padding-left: 12rem;
+            padding-right: 12rem;
+        }
+        </style>
+        """
+
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
     def basic_layout(self):
         """Streamlit Page Layout"""
-        st.set_page_config(self.config.vars.project_name, page_icon=self.logo_path, layout="wide")
         st.markdown(
             """
             <style>
@@ -35,7 +51,6 @@ class FrontEnd:
                 background-image: url('img/fundo.png'); 
                 background-size: cover;
                 background-repeat: no-repeat;
-                color: black;
             }
             h1, h2, h3 {
                 color: white;
@@ -56,33 +71,23 @@ class FrontEnd:
             """,
             unsafe_allow_html=True  
         )
-        
-        c1, c2, c3 = st.columns([5, 5, 5])
-
-        with c2:
-            st.image(self.logo_path, caption='Cirrosifier Logo', use_column_width=True)
-        
-        c1, c2, c3 = st.columns(3)
-
-        c1.markdown(
-            f"""
-            <div style="padding-top: 0px; padding-bottom: 0px;">
-                <h1 style="margin: 0; text-align: left;">{self.config.vars.project_name}</h1>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )    
-    
-        st.markdown(
-            """<hr style="height:2px;border:none;color:grey;background-color:#1b2442;" />""",
-            unsafe_allow_html=True
-        )
-        
-        st.write("#")
-        st.write("#")
 
     def menu(self):
-        """Streamlit nav menu"""
+        st.markdown(
+        """
+        <style>
+        .title-wrapper {
+            color: #FFFFFF; /* Cor do texto */
+            font-size: 36px; /* Tamanho da fonte */
+            text-align: center; /* Alinhamento do texto */
+            font-family: Arial, sans-serif; /* Fonte */
+            padding: 10px; /* Espaçamento interno */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True)
+        st.markdown("<h1 class='title-wrapper'>Cirrosifier</h1>", unsafe_allow_html=True)
+
         selector = option_menu(
             menu_title="",
             options=["Home", "Projeto", "Dados", "Classificação"],
@@ -90,36 +95,59 @@ class FrontEnd:
             icons=["house", "project-diagram", "database", "brain"],
             orientation="horizontal",
             styles={
-                "container": {"padding": "0px", "background-color": "#1b2442", 'border-radius': '5px'},
+                "container": {"background-color": "#1b2442"},
                 "icon": {"color": "white", "font-size": "20px"}, 
-                "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
-                "nav-link-selected": {"background-color": "#4b6584", 'border-radius': '5px'},
+                "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#4b6584"},
+                "nav-link-selected": {"background-color": "#4b65a4"},
             }
         )
         
+
         st.markdown(self.config.input_style, unsafe_allow_html=True)
         st.markdown(self.config.button_style, unsafe_allow_html=True)
 
         if selector == "Home":
+            # Criando uma seção com bordas circulares
             st.markdown(
                 """
                 <style>
-                .stApp {
-                    background-image: url('img/fundo.jpeg'), linear-gradient(#002E48, #4A1C25);
-                    background-attachment: fixed;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    color: black;
+                .side-by-side-container {
+                    display: flex;
+                    align-items: center;
+                    border-radius: 15px;
+                    border: 2px solid #ccc;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
                 }
-                p {
-                    color: black;
+                .side-by-side-container img {
+                    flex: 1;
+                    border-radius: 10px;
+                    margin-right: 10px;
+                }
+                .side-by-side-container p {
+                    flex: 2;
+                    margin: 0;
                 }
                 </style>
                 """,
                 unsafe_allow_html=True
             )
-            st.write("#")
-            st.write('Home')
+
+            # Conteúdo lado a lado
+            st.markdown(
+                """
+                <div class="side-by-side-container">
+                    <img src="img\project_logo.png" width="150" />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Mauris a tellus quam. Sed non risus. Suspendisse lectus tortor, 
+                        dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+                    </p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
         if selector == "Projeto":
             st.write("#")

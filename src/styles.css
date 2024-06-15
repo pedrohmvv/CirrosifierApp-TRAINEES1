@@ -1,0 +1,121 @@
+.stApp {
+  font-family: Inter;
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  background-image: url('img/fundo.png'), linear-gradient(#002E48, #4A1C25);
+  background-attachment: fixed;
+}
+
+.custom-header {
+  background-image: linear-gradient(#103443, #000000);
+  position: relative;
+  top: -115px;
+  display: flex;
+  width: 100%;  /* Adicionado para garantir a altura consistente */
+  justify-content: center; /* Adicionado para centralizar o conteúdo */
+  align-items: center; /* Adicionado para centralizar verticalmente */
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background-image: url('src/bola.png');
+  border: 2px solid white;
+  border-radius: 100%;
+  z-index: -999;
+  box-shadow: 0 0 2px black;
+}
+
+nav {
+  text-align: center;
+  width: 100%; /* Adicionado para garantir que a barra de navegação ocupe toda a largura */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%; /* Adicionado para garantir que os itens da lista ocupem toda a largura */
+}
+
+nav ul li {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid white;
+  width: 100%; /* Adicionado para garantir que cada item da lista ocupe toda a largura disponível */
+}
+
+nav ul li:not(:last-child) {
+  border-right: 1px solid white;
+}
+
+nav ul li a img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.logo {
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.titulo {
+  scale: 1.5;
+  position: absolute;
+  top: 110%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.logo img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  position: relative;
+}
+
+nav ul li a:hover {
+  background-image: linear-gradient(#431022, #000000);
+}
+
+nav ul li::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  visibility: hidden;
+  transition: visibility 0s, transform 0.3s ease-out;
+  transform: scaleX(0);
+}
+
+nav ul li:hover::after {
+  visibility: visible;
+  transform: scaleX(1); 
+}
