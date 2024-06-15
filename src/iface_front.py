@@ -31,11 +31,26 @@ class FrontEnd:
             """
             <style>
             .stApp {
-                background: linear-gradient(to bottom right, #00008B, #FF0000); /* Fundo gradiente de azul escuro para vermelho */
+                background: linear-gradient(to bottom right, #00008B, #FF0000);
+                background-image: url('img/fundo.png'); 
+                background-size: cover;
+                background-repeat: no-repeat;
                 color: black;
             }
             h1, h2, h3 {
-                color: black;
+                color: white;
+            }
+            .css-1v0mbdj {
+                background-color: #1b2442; /* Cor de fundo da barra de navegação */
+            }
+            .css-10trblm {
+                color: white; /* Cor do texto da barra de navegação */
+            }
+            .css-1v0mbdj a {
+                color: white; /* Cor do link da barra de navegação */
+            }
+            .css-1v0mbdj .css-10trblm {
+                font-size: 1.2em; /* Tamanho da fonte dos itens do menu */
             }
             </style>
             """,
@@ -70,27 +85,30 @@ class FrontEnd:
         """Streamlit nav menu"""
         selector = option_menu(
             menu_title="",
-            options=["Gráficos", "Classificador de Estágio", "Classificador de Situação"],
+            options=["Home", "Projeto", "Dados", "Classificação"],
             default_index=0,
-            icons=["bar-chart", "code"],
+            icons=["house", "project-diagram", "database", "brain"],
             orientation="horizontal",
             styles={
-                "container": {"padding": "0px", "background-color": "#829da5", 'border-radius': '5px'},
+                "container": {"padding": "0px", "background-color": "#1b2442", 'border-radius': '5px'},
                 "icon": {"color": "white", "font-size": "20px"}, 
                 "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
-                "nav-link-selected": {"background-color": "#1b2442", 'border-radius': '5px'},
+                "nav-link-selected": {"background-color": "#4b6584", 'border-radius': '5px'},
             }
         )
         
         st.markdown(self.config.input_style, unsafe_allow_html=True)
         st.markdown(self.config.button_style, unsafe_allow_html=True)
 
-        if selector == "Gráficos":
+        if selector == "Home":
             st.markdown(
                 """
                 <style>
                 .stApp {
-                    background: linear-gradient(to bottom right, #1406C3, #FF0000);
+                    background-image: url('img/fundo.jpeg'), linear-gradient(#002E48, #4A1C25);
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                     color: black;
                 }
                 p {
@@ -101,9 +119,17 @@ class FrontEnd:
                 unsafe_allow_html=True
             )
             st.write("#")
-            st.write('Gráficos')
+            st.write('Home')
 
-        if selector == "Classificador de Situação":
+        if selector == "Projeto":
+            st.write("#")
+            st.write('Projeto')
+
+        if selector == "Dados":
+            st.write("#")
+            st.write('Dados')
+
+        if selector == "Classificação":
             death_classes = {0: 'Morte', 1: 'Sobreviveu', 2: 'Transplante'}
             st.write("#")
             st.spinner("Loading your model")
@@ -192,11 +218,13 @@ class FrontEnd:
             col1, col2, col3 = st.columns([1, 1, 1])
             try:
                 with col2:
+                    st.write('#')
+                    st.write('#')
                     if st.button('Realizar Predição', key='submit'):
                         input_array = array(input_array).reshape(1, -1)
                         input_array = scaler.transform(input_array)
                         predict_class = model.predict(input_array)
-                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442">Classe prevista: Estágio {argmax(predict_class) + 1}</h2></div>', unsafe_allow_html=True)
+                        st.write(f'<div style="text-align: center;"><h2 style="color: #1b2442">Classe prevista: {predict_class[0]}</h2></div>', unsafe_allow_html=True)
             except ValueError:
                 st.markdown(
                     """
