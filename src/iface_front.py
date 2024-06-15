@@ -14,8 +14,7 @@ class FrontEnd:
     def __init__(self):
         """Initialize instance"""
         self.config = Config()
-        self.logo_path = path.join(self.config.vars.img_dir,self.config.vars.project_logo)
-
+        self.logo_path = path.join(self.config.vars.img_dir, self.config.vars.project_logo)
 
     def __repr__(self):
         """Basic instance representation"""
@@ -26,25 +25,28 @@ class FrontEnd:
         return "FrontEnd class"
 
     def basic_layout(self):
-        """Streamlit Page Loayout"""
-        st.set_page_config(self.config.vars.project_name, page_icon = self.logo_path, layout = "wide")
+        """Streamlit Page Layout"""
+        st.set_page_config(self.config.vars.project_name, page_icon=self.logo_path, layout="wide")
         st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: white;
-            h1, h2, h3 {color: black;}; 
-        }
-
-        </style>
-        """,
-        unsafe_allow_html=True  
+            """
+            <style>
+            .stApp {
+                background: linear-gradient(to bottom right, #00008B, #FF0000); /* Fundo gradiente de azul escuro para vermelho */
+                color: black;
+            }
+            h1, h2, h3 {
+                color: black;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True  
         )
         
         c1, c2, c3 = st.columns([5, 5, 5])
 
         with c2:
-            st.image(self.logo_path, caption='Cirrosifier Logo', use_column_width=True,)
+            st.image(self.logo_path, caption='Cirrosifier Logo', use_column_width=True)
+        
         c1, c2, c3 = st.columns(3)
 
         c1.markdown(
@@ -54,90 +56,89 @@ class FrontEnd:
             </div>
             """,
             unsafe_allow_html=True
-            )    
+        )    
     
-        st.markdown("""<hr style="height:2px;border:none;color:grey;background-color:#1b2442;" /> """,
-                unsafe_allow_html=True)
+        st.markdown(
+            """<hr style="height:2px;border:none;color:grey;background-color:#1b2442;" />""",
+            unsafe_allow_html=True
+        )
         
         st.write("#")
         st.write("#")
 
     def menu(self):
         """Streamlit nav menu"""
-
         selector = option_menu(
-            menu_title = "",
-            options = ["Gráficos", "Classificador de Estágio", "Classificador de Situação"],
-            default_index = 0,
-            icons = ["bar-chart", "code"],
-            orientation = "horizontal",
-            styles = {
-                "container": {"padding": "0px", 
-                              "background-color": "#829da5",
-                              'border-radius':'5px'},
-
+            menu_title="",
+            options=["Gráficos", "Classificador de Estágio", "Classificador de Situação"],
+            default_index=0,
+            icons=["bar-chart", "code"],
+            orientation="horizontal",
+            styles={
+                "container": {"padding": "0px", "background-color": "#829da5", 'border-radius': '5px'},
                 "icon": {"color": "white", "font-size": "20px"}, 
-
-                "nav-link": {"font-size": "20px", "text-align": "center", 
-                             "margin":"0px", "--hover-color": "#eee"},
-
-                "nav-link-selected": {"background-color": "#1b2442",
-                                      'border-radius':'5px'},
+                "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
+                "nav-link-selected": {"background-color": "#1b2442", 'border-radius': '5px'},
             }
-    )
+        )
+        
         st.markdown(self.config.input_style, unsafe_allow_html=True)
         st.markdown(self.config.button_style, unsafe_allow_html=True)
 
-        if (selector == "Gráficos"):
+        if selector == "Gráficos":
             st.markdown(
-             """
-             <style>
-             .stApp {
-                 background-color: white;
-                p {color: black;}; 
-             }
-
-             </style>
-             """,unsafe_allow_html=True)
+                """
+                <style>
+                .stApp {
+                    background: linear-gradient(to bottom right, #1406C3, #FF0000);
+                    color: black;
+                }
+                p {
+                    color: black;
+                }
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
             st.write("#")
             st.write('Gráficos')
 
-        if (selector == "Classificador de Situação"):
-            death_classes = {0: 'Morte', 1:'Sobreviveu', 2:'Transplante'}
+        if selector == "Classificador de Situação":
+            death_classes = {0: 'Morte', 1: 'Sobreviveu', 2: 'Transplante'}
             st.write("#")
             st.spinner("Loading your model")
             c1, c2, c3, c4, c5 = st.columns([4, 4, 4, 4, 4])
-            categoric_labels = [label for label, key in self.config.vars.death_labels.items() if key =='text']
-            int_labels = [label for label, key in self.config.vars.death_labels.items() if key =='int']
-            labels = [label for label, key in self.config.vars.death_labels.items() if key =='label']
-            categoric_answers = {'Sim':1, 'Não':0}
+            categoric_labels = [label for label, key in self.config.vars.death_labels.items() if key == 'text']
+            int_labels = [label for label, key in self.config.vars.death_labels.items() if key == 'int']
+            labels = [label for label, key in self.config.vars.death_labels.items() if key == 'label']
+            categoric_answers = {'Sim': 1, 'Não': 0}
             input_array = []
-            model_path = path.join(self.config.vars.models_dir,self.config.vars.death_model)
-            scaler_path = path.join(self.config.vars.scalers_dir,self.config.vars.death_scaler)
+            model_path = path.join(self.config.vars.models_dir, self.config.vars.death_model)
+            scaler_path = path.join(self.config.vars.scalers_dir, self.config.vars.death_scaler)
             model = load(model_path)
             scaler = load(scaler_path)
 
             for i, label in enumerate(self.config.vars.death_labels):
                 formatted_label = label.replace('_', ' ')
 
-                if (i <= 4):
+                if i <= 4:
                     column = c2
                 else:
                     column = c4
 
-                if (label in categoric_labels):
-                    answer = column.selectbox(f'Informe: {label}',categoric_answers.keys())
+                if label in categoric_labels:
+                    answer = column.selectbox(f'Informe: {label}', categoric_answers.keys())
                     answer = categoric_answers[answer]
-                elif (label in int_labels):
+                elif label in int_labels:
                     answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, step=1, key=f'{label}_death')
-                elif (label in labels):
-                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=1,max_value=3, step=1, key=f'{label}_death')
+                elif label in labels:
+                    answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=1, max_value=3, step=1, key=f'{label}_death')
                 else:
                     answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_death')
 
                 input_array.append(answer)
             
-            col1, col2, col3 = st.columns([1,1,1])
+            col1, col2, col3 = st.columns([1, 1, 1])
             try:
                 with col2:
                     st.write('#')
@@ -155,42 +156,40 @@ class FrontEnd:
                 )
                 st.warning('Por favor responda todas para realizar a predição')
 
-
-        if (selector == "Classificador de Estágio"):
+        if selector == "Classificador de Estágio":
             st.write("#")
             st.spinner("Loading your model")
             c1, c2, c3, c4, c5 = st.columns([4, 4, 4, 4, 4])
-            categoric_labels = [label for label, key in self.config.vars.stage_labels.items() if key =='text']
-            int_labels = [label for label, key in self.config.vars.stage_labels.items() if key =='int']
-            categoric_answers = {'Sim':1, 'Não':0}
+            categoric_labels = [label for label, key in self.config.vars.stage_labels.items() if key == 'text']
+            int_labels = [label for label, key in self.config.vars.stage_labels.items() if key == 'int']
+            categoric_answers = {'Sim': 1, 'Não': 0}
             input_array = []
-            model_path = path.join(self.config.vars.models_dir,self.config.vars.stage_model)
-            scaler_path = path.join(self.config.vars.scalers_dir,self.config.vars.stage_scaler)
+            model_path = path.join(self.config.vars.models_dir, self.config.vars.stage_model)
+            scaler_path = path.join(self.config.vars.scalers_dir, self.config.vars.stage_scaler)
             model = load(model_path)
             scaler = load(scaler_path)
 
             for i, label in enumerate(self.config.vars.stage_labels):
                 formatted_label = label.replace('_', ' ')
 
-                if (i <= 4):
+                if i <= 4:
                     column = c2
-                elif (4 < i <= 9):
+                elif 4 < i <= 9:
                     column = c3
                 else:
                     column = c4
 
-                if (label in categoric_labels):
-                    answer = column.selectbox(f'Informe: {label}',categoric_answers.keys())
+                if label in categoric_labels:
+                    answer = column.selectbox(f'Informe: {label}', categoric_answers.keys())
                     answer = categoric_answers[answer]
-                elif (label in int_labels):
+                elif label in int_labels:
                     answer = column.number_input(f'Insira sua {formatted_label}: ', min_value=0, step=1, key=f'{label}_stage')
                 else:
                     answer = column.number_input(f'Insira sua taxa de {formatted_label}: ', min_value=0, key=f'taxa_{label}_stage')
 
                 input_array.append(answer)
             
-            
-            col1, col2, col3 = st.columns([1,1,1])
+            col1, col2, col3 = st.columns([1, 1, 1])
             try:
                 with col2:
                     if st.button('Realizar Predição', key='submit'):
@@ -205,6 +204,3 @@ class FrontEnd:
                     """
                 )
                 st.warning('Por favor responda todas para realizar a predição')
-            
-
-    
