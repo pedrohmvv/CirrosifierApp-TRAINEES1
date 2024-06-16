@@ -6,6 +6,7 @@ def app():
     <style>
         div[data-testid="column"]:nth-of-type(2)
         {
+            display: flex;
             text-align: left;
         }
         div[data-testid="column"]:nth-of-type(1)
@@ -29,7 +30,7 @@ def app():
     # Dividir em duas células, a logo e o titulo
     c1, c2 = st.columns([2,2], gap="small")
     with c1:
-        st.image("img/spinning_logo.gif")
+        st.image("img/spinning_logo.gif", width=200)
     with c2:
         st.title("CIRROSIFIER")
         st.header("Classificando a Cirrose")
