@@ -22,9 +22,13 @@ class MultiApp:
 
     def run():
         # Markdown para estilizar a barra lateral
-        st.markdown(
+        st.markdown( # Eu nem sei se essa importação da fonte da TAIL tá dando certo de verdade
         """
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+            html {
+                font-family: "Inter";
+            }
             .block-container {
                 padding-top: 4rem;
             }
@@ -32,9 +36,6 @@ class MultiApp:
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-            }
-            [data-testid="stSidebarContent"] {
-                background-image: url("https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/bola.png");
             }
             [data-testid=stSidebar] [data-testid=stImage] {
                 text-align: center;
@@ -50,12 +51,17 @@ class MultiApp:
 
     # Carregar a barra lateral e os botões
     with st.sidebar:
-        st.sidebar.image("img/asd.png", width=200)
+        st.sidebar.image("img/project_logo.png", width=200)
         st.markdown("<h1 style='text-align: center;'>Cirrosifier</h1>", unsafe_allow_html=True)
         app = option_menu(
             menu_title="Páginas",
-            icons="",
-            options=["Home", "Projeto", "Dados", "Classificação"]
+            icons=["house", "code", "bar-chart", "sliders"],
+            options=["Home", "Projeto", "Dados", "Classificação"],
+            styles={
+                "menu-title": {"text-align": "center"},
+                "nav-link": {"--hover-color": "#4f4f4f", "text-align": "center"},
+                "nav-link-selected": {"background-color": "#95003d"},
+            }
         )
 
     # Condições para checar qual botão o usuário clicou
