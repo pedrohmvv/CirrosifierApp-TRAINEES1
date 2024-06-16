@@ -1,8 +1,69 @@
 import streamlit as st
 
 def app():
-    st.header("Equipe do Cirrosifier")
-    st.markdown("**fotos, nomes e cargos!!!")
+    st.markdown(
+    """
+    <style>
+        header {
+            text-align: center;
+        }
+        div[data-testid="column"]
+        {
+            text-align: center;
+        }
+        .container1 {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+    """,unsafe_allow_html=True
+    )
+
+    st.markdown("<h1 style='text-align: center;'>‎ ‎ ‎ ‎ ‎ ‎ ‎ Equipe do Cirrosifier</h1>", unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    blank1, c1, c2, blank2 = st.columns([2,2,2,2], gap="small")
+    with c1:
+        st.markdown("""
+                    <div class='container1'>Gabriele Targino<br>
+                    Diretor
+                    """, unsafe_allow_html=True)
+    with c2:
+        st.markdown("""
+                    <div class='container1'>Gabriele Targino<br>
+                    <a href='https://github.com/gabitargino'><img src='img/linhas.gif' alt='GitHub'</a><br>
+                    Líder
+                    """, unsafe_allow_html=True)
+    
+    c3, c4, c5, c6, c7 = st.columns([2,2,2,2,2], gap="small")
+    with c3:
+        st.markdown("""
+                    <div class='container1'>Gabriele Targino<br>
+                    Membro
+                    """, unsafe_allow_html=True)
+    with c4:
+        st.markdown("""
+                    <div class='container1'>Joyce Ribeiro<br>
+                    Membro
+                    """, unsafe_allow_html=True)
+    with c5:
+        st.markdown("""
+                    <div class='container1'>Luis Henrique<br>
+                    Membro
+                    """, unsafe_allow_html=True)
+    with c6:
+        st.markdown("""
+                    <div class='container1'>Pedro Henrique<br>
+                    Membro
+                    """, unsafe_allow_html=True)
+    with c7:
+        st.markdown("""
+                    <div class='container1'>Rafael Henrique<br>
+                    Membro
+                    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
