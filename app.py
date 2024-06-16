@@ -61,7 +61,7 @@ class MultiApp:
             options=["Home", "Projeto", "Dados", "Classificação"],
             styles={
                 "menu-title": {"text-align": "center"},
-                "nav-link": {"--hover-color": "#4f4f4f", "text-align": "center"},
+                "nav-link": {"--hover-color": "#262730", "text-align": "center"},
                 "nav-link-selected": {"background-color": "#95003d"},
             }
         )

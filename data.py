@@ -1,7 +1,18 @@
 import streamlit as st
 from streamlit_echarts import st_echarts
+from streamlit_option_menu import option_menu
 
 def app():
+    option = st.selectbox(
+        "Selecione o Gráfico",
+        ("Bilirrubina", 
+         "Albumina", 
+         "Expectativa de Vida",
+         "Mortalidade por Estágio",
+         "Mortalidade por Sexo"))
+
+        
+    st.write("Gráfico:", option)
     option = {
         "xAxis": {
             "type": "category",

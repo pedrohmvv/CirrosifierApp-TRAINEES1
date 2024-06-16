@@ -10,6 +10,16 @@ def app():
         div[data-testid="column"]
         {
             text-align: center;
+            justify-content: center;
+        }
+        [data-testid="column"] [data-testid=stImage] {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
         }
         .container1 {
             border: 2px solid #3498db;
@@ -23,11 +33,10 @@ def app():
             padding: 10px;
             margin-bottom: 20px;
         }
-        .container3 {
-            border: 2px solid white;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 20px;
+        .git:hover {
+            border: 1px solid white;
+            border-radius: 30px;
+            box-shadow: 0 0 2px rgba(255,255,255, 0.6);
         }
     </style>
     """,unsafe_allow_html=True
@@ -41,14 +50,14 @@ def app():
     with c1:
         st.markdown("""
                     <div class='container2'>Davi Ribeiro<br>
-                    <a href='https://github.com/davirpp'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/davirpp'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Diretor
                     """, unsafe_allow_html=True)
     with c2:
         st.markdown("""
                     <div class='container2'>Rodrigo Veríssimo<br>
-                    <a href='https://github.com/rodrigo0567'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/rodrigo0567'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Líder
                     """, unsafe_allow_html=True)
@@ -57,35 +66,35 @@ def app():
     with c3:
         st.markdown("""
                     <div class='container1'>Gabriele Targino<br>
-                    <a href='https://github.com/gabitargino'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/gabitargino'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c4:
         st.markdown("""
                     <div class='container1'>Joyce Ribeiro<br>
-                    <a href='https://github.com/Joyce-Ribeiro'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/Joyce-Ribeiro'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c5:
         st.markdown("""
                     <div class='container1'>Luis Henrique<br>
-                    <a href='https://github.com/luyluish'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/luyluish'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c6:
         st.markdown("""
                     <div class='container1'>Pedro Henrique<br>
-                    <a href='https://github.com/ricktherunner'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/ricktherunner'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c7:
         st.markdown("""
                     <div class='container1'>Rafael Henrique<br>
-                    <a href='https://github.com/rafaelhenrique-ra'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/rafaelhenrique-ra'><img class='git' src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Membro
                     """, unsafe_allow_html=True)
@@ -104,20 +113,14 @@ def app():
     st.markdown("---")
     
     st.header("Links Importantes")
-    c7, c8, c9 = st.columns([2,2,2], gap="small")
+    c8, c9, c10 = st.columns([2,2,2], gap="small")
     
-    with c7:
-        st.markdown("""
-                    <div class='container3'>
-                    <a href='https://medium.com/@joyribeirogxavier/fff3a577da2f'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/medium.png' style='width:50%;height:50%;' alt='GitHub'></a>
-                    <br>
-                    Artigo no Medium
-                    """, unsafe_allow_html=True)
-        st.image("img/medium.png")
-        st.markdown("Artigo do Medium: https://medium.com/@joyribeirogxavier/fff3a577da2f")
     with c8:
-        st.image("img/github.png")
-        st.markdown("Repositório no GitHub: https://github.com/rodrigo0567/Trainees1-PFR")
+        st.image("img/medium_logo.png")
+        st.markdown("<a href='https://medium.com/@joyribeirogxavier/fff3a577da2f'>Artigo do Medium</a>", unsafe_allow_html=True)
     with c9:
-        st.image("img/tailogo.png")
-        st.markdown("Site da TAIL: https://tail-tech.com/")
+        st.image("img/github_logo.png")
+        st.markdown("<a href='https://github.com/rodrigo0567/Trainees1-PFR'>Repositório no GitHub</a>", unsafe_allow_html=True)
+    with c10:
+        st.image("img/tail_logo.png")
+        st.markdown("<a href='https://tail-tech.com'>Site da TAIL</a>", unsafe_allow_html=True)
