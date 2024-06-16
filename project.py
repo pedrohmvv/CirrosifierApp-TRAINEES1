@@ -35,14 +35,14 @@ def app():
     with c1:
         st.markdown("""
                     <div class='container2'>Davi Ribeiro<br>
-                    <a href='https://github.com/davirpp'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/davirpp'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Diretor
                     """, unsafe_allow_html=True)
     with c2:
         st.markdown("""
                     <div class='container2'>Rodrigo Veríssimo<br>
-                    <a href='https://github.com/rodrigo0567'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <a href='https://github.com/rodrigo0567'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/git2.png' style='width:42px;height:42px;' alt='GitHub'></a>
                     <br>
                     Líder
                     """, unsafe_allow_html=True)
