@@ -70,7 +70,7 @@ class Config:
                             .stSelectbox > div, .stNumberInput > div {
                                 width: 100% !important;
                             }
-                            .stSelectbox label, .stNumberInput label {
+                            .stSelectbox label, .stNumberInput label {  
                                 white-space: nowrap !important;
                                 overflow: visible; /* Garante que o conteúdo visível não seja cortado */
                                 text-overflow: ellipsis;

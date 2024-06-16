@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit_option_menu import option_menu # Para usar a barra de navegação
-import project, data, classification, home # As outras páginas
+
+import src.classification
+import src.data, src.home, src.project # As outras páginas
 
 # Configurações gerais da página
 st.set_page_config(
@@ -8,6 +10,7 @@ st.set_page_config(
         page_icon="img/project_logo.png",
         layout="wide"
         )
+img = "img/project_logo.png"
 
 class MultiApp:
     
@@ -46,6 +49,10 @@ class MultiApp:
                 margin-right: auto;
                 width: 100%;
             }
+            .stImage {
+                border-radius: 3px;
+                box-shadow: 0 0 2px rgba(255,255,255, 0.6);
+            }
         </style>
         """,
         unsafe_allow_html=True
@@ -53,7 +60,7 @@ class MultiApp:
 
     # Carregar a barra lateral e os botões
     with st.sidebar:
-        st.sidebar.image("img/project_logo.png", width=200)
+        st.sidebar.image(img, width=200)
         st.markdown("<h1 style='text-align: center;'>Cirrosifier</h1>", unsafe_allow_html=True)
         app = option_menu(
             menu_title="Páginas",
@@ -68,13 +75,13 @@ class MultiApp:
 
     # Condições para checar qual botão o usuário clicou
     if app == "Home":
-        home.app()
+        src.home.app()
     if app == "Projeto":
-        project.app()
+        src.project.app()
     if app == "Dados":
-        data.app()
+        src.data.app()
     if app == "Classificação":
-        classification.app()
+        src.classification.app()
 
     # Rodar o site
     run()
