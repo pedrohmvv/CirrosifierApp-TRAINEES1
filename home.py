@@ -34,7 +34,7 @@ def app():
         st.title("CIRROSIFIER")
         st.header("Classificando a Cirrose")
         st.markdown("Um projeto por Trainees 1")
-        st.markdown("Rotação 2024.1")
+        st.markdown("TAIL - Rotação 2024.1")
 
     st.markdown("---")
 
