@@ -109,45 +109,65 @@ class FrontEnd:
         if selector == "Home":
             # Criando uma seção com bordas circulares
             st.markdown(
-                """
-                <style>
-                .side-by-side-container {
-                    display: flex;
-                    align-items: center;
-                    border-radius: 15px;
-                    border: 2px solid #ccc;
-                    padding: 10px;
-                    margin-bottom: 20px;
-                    overflow: hidden;
-                }
-                .side-by-side-container img {
-                    flex: 1;
-                    border-radius: 10px;
-                    margin-right: 10px;
-                }
-                .side-by-side-container p {
-                    flex: 2;
-                    margin: 0;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True
-            )
+            """
+            <style>
+                body {
+                background-image: url('https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/fundo.png'); /* URL da imagem de fundo */
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                font-family: Arial, sans-serif;
+            }
+            .centered-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .side-by-side-container {
+                display: flex;
+                align-items: center;
+                border-radius: 10px;
+                border: 2px solid #ccc;
+                padding: 10px;
+                overflow: hidden;
+                background-color: #002e48; /* Cor de fundo da célula */
+                max-width: 600px; /* Largura máxima da célula */
+                width: 100%; /* Para ocupar todo o espaço disponível */
+                box-shadow: inset 0 0 10px rgba(0,0,0,0.1); /* Sombra interna */
+            }
+            .side-by-side-container img {
+                flex: 1;
+                border-radius: 8px;
+                width: 244px;
+                height: auto; /* Altura automática proporcional */
+                margin-right: 10px;
+            }
+            .side-by-side-container p {
+                flex: 2;
+                margin: 0;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
 
-            # Conteúdo lado a lado
-            st.markdown(
-                """
+        # Contêiner externo para centralizar o conteúdo
+        st.markdown(
+            """
+            <div class="centered-content">
                 <div class="side-by-side-container">
-                    <img src="img\project_logo.png" width="150" />
+                    <img src="https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/project_logo.png" width="150" />
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Mauris a tellus quam. Sed non risus. Suspendisse lectus tortor, 
                         dignissim sit amet, adipiscing nec, ultricies sed, dolor.
                     </p>
                 </div>
-                """,
-                unsafe_allow_html=True
-            )
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         if selector == "Projeto":
             st.write("#")
