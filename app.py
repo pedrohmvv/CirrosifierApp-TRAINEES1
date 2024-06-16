@@ -39,7 +39,9 @@ class MultiApp:
             }
             [data-testid=stSidebar] [data-testid=stImage] {
                 text-align: center;
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
