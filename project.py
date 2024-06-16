@@ -17,6 +17,12 @@ def app():
             padding: 10px;
             margin-bottom: 20px;
         }
+        .container2 {
+            border: 2px solid #a60d4e;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
     </style>
     """,unsafe_allow_html=True
     )
@@ -28,13 +34,16 @@ def app():
     blank1, c1, c2, blank2 = st.columns([2,2,2,2], gap="small")
     with c1:
         st.markdown("""
-                    <div class='container1'>Gabriele Targino<br>
+                    <div class='container2'>Davi Ribeiro<br>
+                    <a href='https://github.com/davirpp'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Diretor
                     """, unsafe_allow_html=True)
     with c2:
         st.markdown("""
-                    <div class='container1'>Gabriele Targino<br>
-                    <a href='https://github.com/gabitargino'><img src='img/linhas.gif' alt='GitHub'</a><br>
+                    <div class='container2'>Rodrigo Veríssimo<br>
+                    <a href='https://github.com/rodrigo0567'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Líder
                     """, unsafe_allow_html=True)
     
@@ -42,26 +51,36 @@ def app():
     with c3:
         st.markdown("""
                     <div class='container1'>Gabriele Targino<br>
+                    <a href='https://github.com/gabitargino'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c4:
         st.markdown("""
                     <div class='container1'>Joyce Ribeiro<br>
+                    <a href='https://github.com/Joyce-Ribeiro'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c5:
         st.markdown("""
                     <div class='container1'>Luis Henrique<br>
+                    <a href='https://github.com/luyluish'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c6:
         st.markdown("""
                     <div class='container1'>Pedro Henrique<br>
+                    <a href='https://github.com/ricktherunner'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Membro
                     """, unsafe_allow_html=True)
     with c7:
         st.markdown("""
                     <div class='container1'>Rafael Henrique<br>
+                    <a href='https://github.com/rafaelhenrique-ra'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/1cafc56d47f1d9e64af41138165180e5fdf12744/img/git.svg' style='width:42px;height:42px;' alt='GitHub'></a>
+                    <br>
                     Membro
                     """, unsafe_allow_html=True)
 
