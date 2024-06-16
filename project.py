@@ -107,6 +107,12 @@ def app():
     c7, c8, c9 = st.columns([2,2,2], gap="small")
     
     with c7:
+        st.markdown("""
+                    <div class='container3'>
+                    <a href='https://medium.com/@joyribeirogxavier/fff3a577da2f'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/medium.png' style='width:50%;height:50%;' alt='GitHub'></a>
+                    <br>
+                    Artigo no Medium
+                    """, unsafe_allow_html=True)
         st.image("img/medium.png")
         st.markdown("Artigo do Medium: https://medium.com/@joyribeirogxavier/fff3a577da2f")
     with c8:
