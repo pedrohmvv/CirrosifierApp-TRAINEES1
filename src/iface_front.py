@@ -31,8 +31,7 @@ class FrontEnd:
             """
             <style>
             .stApp {
-                background: linear-gradient(to bottom right, #00008B, #FF0000);
-                background-image: url('img/fundo.png'); 
+                background: linear-gradient(to bottom right, #00008B, #FF0000); 
                 background-size: cover;
                 background-repeat: no-repeat;
                 color: black;
@@ -56,7 +55,7 @@ class FrontEnd:
             """,
             unsafe_allow_html=True  
         )
-        
+    
         c1, c2, c3 = st.columns([5, 5, 5])
 
         with c2:
@@ -85,9 +84,9 @@ class FrontEnd:
         """Streamlit nav menu"""
         selector = option_menu(
             menu_title="",
-            options=["Home", "Projeto", "Dados", "Classificação"],
+            options=["Home", "Gráficos", "Classificação", "Mais Sobre o Projeto"],
             default_index=0,
-            icons=["house", "project-diagram", "database", "brain"],
+            icons=["house", "bar-chart", "database", "sliders"],
             orientation="horizontal",
             styles={
                 "container": {"padding": "0px", "background-color": "#1b2442", 'border-radius': '5px'},
