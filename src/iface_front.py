@@ -112,7 +112,7 @@ class FrontEnd:
             """
             <style>
                 body {
-                background-image: url('https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/fundo.png'); /* URL da imagem de fundo */
+                background-image: url('https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/feature/rework/img/fundo.png'), linear-gradient(#002E48, #4A1C25);
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
