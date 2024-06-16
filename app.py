@@ -53,6 +53,9 @@ class MultiApp:
                 border-radius: 3px;
                 box-shadow: 0 0 2px rgba(255,255,255, 0.6);
             }
+            .st-emotion-cache-ubko3j {
+                display: none;
+            }
         </style>
         """,
         unsafe_allow_html=True
