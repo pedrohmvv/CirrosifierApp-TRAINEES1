@@ -56,6 +56,12 @@ class MultiApp:
             .st-emotion-cache-ubko3j {
                 display: none;
             }
+            .container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center
+                    }
+            
         </style>
         """,
         unsafe_allow_html=True
@@ -63,7 +69,7 @@ class MultiApp:
 
     # Carregar a barra lateral e os botões
     with st.sidebar:
-        st.sidebar.image(img, width=200)
+        st.sidebar.markdown("<div class='container'><img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/main/img/project_logo.png' style='width:200px;height:200px'; alt='GitHub'></div>", unsafe_allow_html=True)
         st.markdown("<h1 style='text-align: center;'>Cirrosifier</h1>", unsafe_allow_html=True)
         app = option_menu(
             menu_title="Páginas",
