@@ -2,6 +2,7 @@ streamlit==1.29.0
 streamlit-extras==0.3.5
 streamlit-keyup==0.2.0
 streamlit-option-menu==0.3.6
+streamlit_echarts
 streamlit_lottie
 joblib
 numpy

@@ -30,11 +30,23 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": stages,
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
             "yAxis": {
                 "type": "value",
-                "min": "0",
-                "max": "5"
+                "min": 0,
+                "max": 5,
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
             },
             "series": [
                 {
@@ -50,6 +62,7 @@ def app():
                        "textStyle": {
                             "color": 'white'
                         }},
+            "backgroundColor": "rgb(14, 17, 23)"
         }
 
         # Exibindo o gráfico ECharts de média de bilirrubina por estágio
@@ -67,8 +80,22 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": ["Estágio 1", "Estágio 2", "Estágio 3"],
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Tempo médio de morte (dias)",
@@ -84,7 +111,8 @@ def app():
                        "textStyle": {
                             "color": 'white'
                             },
-                        }
+                        },
+            "backgroundColor": "rgb(14, 17, 23)"
         }
 
         # Exibindo o gráfico ECharts de tempo médio de morte por estágio
@@ -100,8 +128,23 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": contagem_por_estagio.index.tolist(),
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "backgroundColor": "rgb(14, 17, 23)",
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Morte",
@@ -143,8 +186,22 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": contagem_por_sexo.index.tolist(),
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Mortos",
@@ -167,7 +224,8 @@ def app():
                        "textStyle": {
                             "color": 'white'
                             },
-                            }
+                            },
+            "backgroundColor": "rgb(14, 17, 23)",
         }
 
         # Exibindo o gráfico ECharts de contagem por Sexo e Situação
