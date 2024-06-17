@@ -4,6 +4,7 @@ streamlit-keyup==0.2.0
 streamlit-option-menu==0.3.6
 streamlit_echarts
 streamlit_lottie
+streamlit_echarts
 joblib
 numpy
 lightgbm
