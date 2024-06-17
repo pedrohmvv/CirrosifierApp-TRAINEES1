@@ -13,7 +13,7 @@ def app():
     df_cirrose = pd.read_csv('data/liver_cirrhosis_v1.csv')
 
     # Menu de seleção
-    option = option_menu(
+    option = st.selectbox(
         "Selecione o Gráfico",
         ("Bilirrubina", 
          "Expectativa de Vida",
@@ -46,7 +46,10 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Média de Bilirrubina (mg/dl)"]},
+            "legend": {"data": ["Média de Bilirrubina (mg/dl)"],
+                       "textStyle": {
+                            "color": 'white'
+                        }},
         }
 
         # Exibindo o gráfico ECharts de média de bilirrubina por estágio
@@ -76,7 +79,12 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Tempo médio de morte (dias)"]},
+
+            "legend": {"data": ["Tempo médio de morte (dias)"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                        }
         }
 
         # Exibindo o gráfico ECharts de tempo médio de morte por estágio
@@ -112,7 +120,11 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Morte", "Sobreviveu"]},
+            "legend": {"data": ["Morte", "Sobreviveu"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                        }
         }
 
         # Exibindo o gráfico ECharts de contagem por Estágio e Situação
@@ -151,7 +163,11 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Mortos", "Sobreviventes/Transplantados"]},
+            "legend": {"data": ["Mortos", "Sobreviventes/Transplantados"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                            }
         }
 
         # Exibindo o gráfico ECharts de contagem por Sexo e Situação
