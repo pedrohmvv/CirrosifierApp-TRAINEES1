@@ -13,8 +13,8 @@ def app():
     df_cirrose = pd.read_csv('data/liver_cirrhosis_v1.csv')
 
     # Menu de seleção
-    option = option_menu(
-        "Selecione o Gráfico",
+    option = st.selectbox(
+        "Selecione a Análise",
         ("Bilirrubina", 
          "Expectativa de Vida",
          "Mortalidade por Estágio",
