@@ -30,7 +30,7 @@ def app():
     # Dividir em duas células, a logo e o titulo
     c1, c2 = st.columns([2,2], gap="small")
     with c1:
-        st.image("img/spinning_logo.gif", width=200)
+        st.markdown("<img src='https://raw.githubusercontent.com/ricktherunner/CirrosifierApp-TRAINEES1/main/img/spinning_logo.gif' style='width:200px;height:200px;' alt='GitHub'>", unsafe_allow_html=True)
     with c2:
         st.title("CIRROSIFIER")
         st.header("Classificando a Cirrose")

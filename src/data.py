@@ -42,7 +42,7 @@ def app():
                     "data": albValues,
                     "type": "bar",
                     "itemStyle": {
-                        "color": "#3CB371"  # Green color for "Média de Bilirrubina (mg/dl)"
+                        "color": "#d94c21"  # Green color for "Média de Bilirrubina (mg/dl)"
                     }
                 },
             ],
