@@ -14,7 +14,7 @@ def app():
 
     # Menu de seleção
     option = st.selectbox(
-        "Selecione a Análise",
+        "Selecione o Gráfico",
         ("Bilirrubina", 
          "Expectativa de Vida",
          "Mortalidade por Estágio",
@@ -30,11 +30,23 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": stages,
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
             "yAxis": {
                 "type": "value",
-                "min": "0",
-                "max": "5"
+                "min": 0,
+                "max": 5,
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
             },
             "series": [
                 {
@@ -42,11 +54,15 @@ def app():
                     "data": albValues,
                     "type": "bar",
                     "itemStyle": {
-                        "color": "#3CB371"  # Green color for "Média de Bilirrubina (mg/dl)"
+                        "color": "#d94c21"  # Green color for "Média de Bilirrubina (mg/dl)"
                     }
                 },
             ],
-            "legend": {"data": ["Média de Bilirrubina (mg/dl)"]},
+            "legend": {"data": ["Média de Bilirrubina (mg/dl)"],
+                       "textStyle": {
+                            "color": 'white'
+                        }},
+            "backgroundColor": "rgb(14, 17, 23)"
         }
 
         # Exibindo o gráfico ECharts de média de bilirrubina por estágio
@@ -64,8 +80,22 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": ["Estágio 1", "Estágio 2", "Estágio 3"],
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Tempo médio de morte (dias)",
@@ -76,7 +106,13 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Tempo médio de morte (dias)"]},
+
+            "legend": {"data": ["Tempo médio de morte (dias)"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                        },
+            "backgroundColor": "rgb(14, 17, 23)"
         }
 
         # Exibindo o gráfico ECharts de tempo médio de morte por estágio
@@ -92,8 +128,23 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": contagem_por_estagio.index.tolist(),
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "backgroundColor": "rgb(14, 17, 23)",
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Morte",
@@ -112,7 +163,11 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Morte", "Sobreviveu"]},
+            "legend": {"data": ["Morte", "Sobreviveu"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                        }
         }
 
         # Exibindo o gráfico ECharts de contagem por Estágio e Situação
@@ -131,8 +186,22 @@ def app():
             "xAxis": {
                 "type": "category",
                 "data": contagem_por_sexo.index.tolist(),
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo X
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo X
+                }
             },
-            "yAxis": {"type": "value"},
+            "yAxis": {
+                "type": "value",
+                "axisLabel": {
+                    "color": "#ffffff"  # Cor do texto do eixo Y
+                },
+                "nameTextStyle": {
+                    "color": "#ffffff"  # Cor do nome do eixo Y
+                }
+            },
             "series": [
                 {
                     "name": "Mortos",
@@ -151,7 +220,12 @@ def app():
                     }
                 },
             ],
-            "legend": {"data": ["Mortos", "Sobreviventes/Transplantados"]},
+            "legend": {"data": ["Mortos", "Sobreviventes/Transplantados"],
+                       "textStyle": {
+                            "color": 'white'
+                            },
+                            },
+            "backgroundColor": "rgb(14, 17, 23)",
         }
 
         # Exibindo o gráfico ECharts de contagem por Sexo e Situação
