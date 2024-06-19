@@ -35,7 +35,9 @@ Tabela de conteúdos
 O Cirrosfier é um projeto proveniente da rotação de Trainees 1,
 da [**TAIL**](https://tail-tech.com/) _(Technology and Artificial Intelligence League)_. A rotação tem como intuito ensinar e introduzir novos integrantes aos conceitos e práticas de Aprendizado de Máquina e Inteligência Artificial. Durante a rotação, foram desenvolvidos 4 modelos para classificar tanto o Estágio do paciente (1, 2 e 3), quanto a Situação ('Sobreviveu', 'Transplante', 'Morte'). Como fruto dessa prática, no Cirrosifier implantamos os dois, modelos que obtiveram melhor acurácia por classificação, que em ambos os casos, foi o modelo de Light Gradient Boost Machine. Este aplicativo não estava inicialmente no escopo do projeto, mas ao fim da rotação, a equipe decidiu desenvolvê-lo para trazer algo novo e concreto. Mais pra frente estará disponível o link para o repositório do projeto de Análise de Dados e Desenvolvimento dos Modelos.
 
-<img src="img/tail_logo.png" alt="TAIL" width="200"/>
+<a href="https://tail-tech.com/">
+    <img src="img/tail_logo.png" alt="TAIL" width="200"/>
+</a>
 
 Confira o site da **TAIL**
 
