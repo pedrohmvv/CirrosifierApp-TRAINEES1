@@ -18,7 +18,7 @@ class Project:
         st.markdown(self.config.project_style, unsafe_allow_html=True)
 
         # Section title
-        st.markdown("<h1 style='text-align: center;'>‎ ‎ ‎ ‎ ‎ ‎ ‎ Equipe do Cirrosifier</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>‎ ‎ ‎ ‎ ‎ Equipe do Cirrosifier</h1>", unsafe_allow_html=True)
         
         st.markdown("---")
 
