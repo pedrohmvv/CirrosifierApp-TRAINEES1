@@ -21,14 +21,15 @@ Tabela de conteúdos
 =================
 1. [Sobre](#sobre)
 2. [Features](#features)
-3. [Interface Inicial](#interface-inicial)
-4. [Calculadora de Juros Compostos](#calculadora-de-juros-compostos)
-5. [Recomendador de Investimentos](#recomendador-de-investimentos)
-6. [Histórico de Ações](#histórico-de-ações)
-7. [Como rodar localmente](#como-rodar-localmente)
-8. [Tecnologias e Ferramentas](#tecnologias-e-ferramentas)
-9. [Autores](#autores)
-10. [Repositório do Projeto de desenvolvimento dos Modelos](#repositório-do-projeto-de-desenvolvimento-dos-modelos)
+3. [Homepage](#homepage)
+4. [Descrição do Projeto](#descrição-do-projeto)
+5. [Visualização de Dados](#visualização-de-dados)
+6. [Classificação de Estágio](#classificação-de-estágio)
+7. [Classificação de Situação](#classificação-de-situação)
+8. [Como Rodar Localmente](#como-rodar-localmente)
+9. [Tecnologias e Ferramentas](#tecnologias-e-ferramentas)
+10. [Autores](#autores)
+11. [Repositório do Projeto de desenvolvimento dos Modelos](#repositório-do-projeto-de-desenvolvimento-dos-modelos)
 
 ### Sobre <a name="sobre"></a>
 
@@ -51,7 +52,7 @@ Confira o site da **TAIL**
 - [x] Classificação de Estágio
 - [x] Classificação da Situação
 
-### Interface Inicial
+### Homepage
 
 <p align="center">
   <a>
